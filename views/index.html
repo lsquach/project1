@@ -33,17 +33,17 @@
           <button type="submit" class="btn btn-info">Add</button>
         </form>
           <div id="dogTarget">
-            <script id="dogs-template" type="text/x-handlebars-template">
-            {{#each dogs}}
+            <script id="dog-template" type="text/x-handlebars-template">
             <hr>
             <p>
-              <b>{{name}}</b>
+              Name: <b>{{name}}</b>
               <br>
-              <img src="{{image}}" />
               <br>
-              <button type="button" name="button" class="deleteBtn btn btn-warning pull-right" data-id={{_id}}>Delete</button>
+              <img src="{{image}}" class="img-size">
+              <br>
+              <br>
+              <button type="button" name="button" class="deleteBtn btn btn-warning" data-id={{_id}}>Delete</button>
             </p>
-            {{/each}}
           </script>
           </div>
           <hr>

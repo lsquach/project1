@@ -6,11 +6,11 @@ var db = require("./models");
 var dogList =[];
 dogList.push({
               name: 'Franklin',
-              image: '1994, March 8',
+              image: 'https://scontent-iad3-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10985226_10102188058480217_1443609514444524365_n.jpg?oh=f2c66ec6952e5c05272041f488f0e3f9&oe=57B63BEB',
             });
 dogList.push({
               name: 'Samson',
-              image: '1994, March 8',
+              image: 'https://scontent-iad3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11412436_10102272792243077_75801405203310469_n.jpg?oh=972cc68797a62796a586f64304cbaaa4&oe=5785BDDB',
             });
 
 

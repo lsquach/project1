@@ -1,7 +1,7 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
   $.get('/api/dogs').success(function (dogs) {
-    dogs.forEach(function(dogs) {
+    dogs.forEach(function(dog) {
       renderDog(dog);
     });
   });
