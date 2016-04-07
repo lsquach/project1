@@ -44,6 +44,19 @@
               <br>
               <button type="button" name="button" class="deleteBtn btn btn-warning" data-id={{_id}}>Delete</button>
             </p>
+            <h2> Activity Log</h2>
+            {{#each activityLog}}
+            <div class="activity">
+              <ul>
+                <li>Time: {{time}}</li>
+                <li>Name: {{name}}</li>
+                <li>Walked?: {{#if walked}} Yes {{else}} No{{/if}}</li>
+                <li>Pooped?: {{#if pooped}} Yes {{else}} No{{/if}}</li>
+                <li>Peed?: {{#if peed}} Yes {{else}} No{{/if}}</li>
+                <li>Fed?: {{#if fed}} Yes {{else}} No{{/if}}</li>
+              </ul>
+            </div>
+            {{/each}}
           </script>
           </div>
           <hr>

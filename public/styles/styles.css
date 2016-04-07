@@ -3,3 +3,8 @@
   height: 190px;
   border-radius: 20px;
 }
+.activity {
+  background-color: gray;
+  border-radius: 15px;
+  color: white;
+}

@@ -15,13 +15,21 @@ dogList.push({
 
 var activityLogList = [];
 activityLogList.push({
-              time: '12:00 pm',
-              name: 'Sam',
+              time: '6:00 pm',
+              name: 'Daniel',
               walked: true,
               pooped: false,
               peed: true,
               fed: true
   });
+  activityLogList.push({
+                time: '7:00 am',
+                name: 'Katie',
+                walked: true,
+                pooped: true,
+                peed: true,
+                fed: false
+    });
 
 // populate each albums song list
 dogList.forEach(function(dog) {
