@@ -14,7 +14,11 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  // FILL ME IN !
+  db.Dog.create(req.body, function(err, dog) {
+  if (err) { console.log('error', err); }
+  console.log(dog);
+  res.json(dog);
+});
 }
 
 function show(req, res) {
