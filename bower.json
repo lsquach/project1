@@ -1,0 +1,22 @@
+{
+  "name": "project1",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "lsquach <lsquach@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/lsquach/project1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6",
+    "handlebars": "^4.0.5"
+  }
+}
