@@ -38,6 +38,7 @@ app.get('/api', controllers.api.index);
 
 app.get('/api/dogs', controllers.dogs.index);
 app.post('/api/dogs', controllers.dogs.create);
+//app.post('/api/dogs/:dogId/dogs', controllers.albumsSongs.create);
 
 
 
