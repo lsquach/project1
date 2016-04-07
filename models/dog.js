@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var DogSchema = new Schema({
   name: String,
   image: String,
-  activityLog: {type: Schema.Types.OjectID, ref: 'ActivityLog'},
+  //activityLog: {type: Schema.Types.OjectID, ref: 'ActivityLog'},
 });
 
 var Dog = mongoose.model('Dog', DogSchema);
