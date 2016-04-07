@@ -34,29 +34,31 @@
         </form>
           <div id="dogTarget">
             <script id="dog-template" type="text/x-handlebars-template">
-            <hr>
-            <p>
-              Name: <b>{{name}}</b>
-              <br>
-              <br>
-              <img src="{{image}}" class="img-size">
-              <br>
-              <br>
-              <button type="button" name="button" class="deleteBtn btn btn-warning" data-id={{_id}}>Delete</button>
-            </p>
-            <h2> Activity Log</h2>
-            {{#each activityLog}}
-            <div class="activity">
-              <ul>
-                <li>Time: {{time}}</li>
-                <li>Name: {{name}}</li>
-                <li>Walked?: {{#if walked}} Yes {{else}} No{{/if}}</li>
-                <li>Pooped?: {{#if pooped}} Yes {{else}} No{{/if}}</li>
-                <li>Peed?: {{#if peed}} Yes {{else}} No{{/if}}</li>
-                <li>Fed?: {{#if fed}} Yes {{else}} No{{/if}}</li>
-              </ul>
+              <div class="row dog" data-dog-id="{{_id}}">
+              <hr>
+              <p>
+                Name: <b>{{name}}</b>
+                <br>
+                <br>
+                <img src="{{image}}" class="img-size">
+                <br>
+                <br>
+                <button type="button" name="button" class="deleteBtn btn btn-warning" data-id={{_id}}>Delete</button>
+              </p>
+              <h2> Activity Log</h2>
+              {{#each activityLog}}
+              <div class="activity">
+                <ul>
+                  <li>Time: {{time}}</li>
+                  <li>Name: {{name}}</li>
+                  <li>Walked?: {{#if walked}} Yes {{else}} No{{/if}}</li>
+                  <li>Pooped?: {{#if pooped}} Yes {{else}} No{{/if}}</li>
+                  <li>Peed?: {{#if peed}} Yes {{else}} No{{/if}}</li>
+                  <li>Fed?: {{#if fed}} Yes {{else}} No{{/if}}</li>
+                </ul>
+              </div>
+              {{/each}}
             </div>
-            {{/each}}
           </script>
           </div>
           <hr>
@@ -64,5 +66,41 @@
         </div>
       </div>
     </div>
+    <!-- begin activityModal: this is not visible until you call .modal() on it -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="activityModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Add Acitivity</h4>
+          </div>
+          <div class="modal-body">
+
+            <fieldset class='form-horizontal'>
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="time">Time</label>
+                <div class="col-md-4">
+                  <input id="time" name="time" type="text" placeholder="" class="form-control input-md" required="">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="loggerName">Name</label>
+                <div class="col-md-4">
+                  <input id="loggerName" name="loggerName" type="text" placeholder="" class="form-control input-md">
+                </div>
+              </div>
+            </fieldset>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveActivity">Save</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   </body>
 </html>

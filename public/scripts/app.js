@@ -27,3 +27,12 @@ function renderDog(dog) {
   var html = dogsTemplate(dog);
   $('#dogTarget').prepend(html);
 }
+
+// when the add activity button is clicked, display the modal
+// function handleAddActivityClick(e) {
+//   console.log('add-activity clicked!');
+//   var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+//   console.log('id',currentAlbumId);
+//   $('#songModal').data('album-id', currentAlbumId);
+//   $('#songModal').modal();  // display the modal!
+// }
