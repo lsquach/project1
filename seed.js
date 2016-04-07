@@ -13,6 +13,20 @@ dogList.push({
               image: 'https://scontent-iad3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11412436_10102272792243077_75801405203310469_n.jpg?oh=972cc68797a62796a586f64304cbaaa4&oe=5785BDDB',
             });
 
+var activityLogList = [];
+activityLogList.push({
+              time: '12:00 pm',
+              name: 'Sam',
+              walked: true,
+              pooped: false,
+              peed: true,
+              fed: true
+  });
+
+// populate each albums song list
+dogList.forEach(function(dog) {
+  dog.activityLog = activityLogList;
+});
 
 db.Dog.remove({}, function(err, dogs){
 

@@ -1,10 +1,13 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+var ActivityLog = require('./activityLog');
+
+
 var DogSchema = new Schema({
   name: String,
   image: String,
-  //activityLog: {type: Schema.Types.OjectID, ref: 'ActivityLog'},
+  activityLog: [ActivityLog.schema],
 });
 
 var Dog = mongoose.model('Dog', DogSchema);
