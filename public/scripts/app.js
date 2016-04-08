@@ -18,8 +18,9 @@ $(document).ready(function() {
   });
 
   $('#dogTarget').on('click', '.add-activity', handleAddActivityClick);
-});
 
+  $('#saveActivity').on('click', handleNewActivitySubmit);
+});
 
 // this function takes a single dog and renders it to the page
 function renderDog(dog) {
@@ -74,6 +75,7 @@ function handleNewActivitySubmit(e) {
     $poopedField.val('');
     $peedField.val('');
     $fedField.val('');
+    // $(this).trigger("reset");
 
     // close modal
     $modal.modal('hide');
