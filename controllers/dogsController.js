@@ -22,7 +22,11 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  // FILL ME IN !
+  db.Dog.findById(req.params.dogId, function(err, foundDog) {
+    if(err) { console.log('dogsController.show error', err); }
+    console.log('dogsController.show responding with', foundDog);
+    res.json(foundDog);
+  });
 }
 
 function destroy(req, res) {

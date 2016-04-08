@@ -40,3 +40,51 @@ function handleAddActivityClick(e) {
   $('#activityModal').modal('show');  // display the modal!
   console.log('modal');
 }
+
+function handleNewActivitySubmit(e) {
+  e.preventDefault();
+  var $modal = $('#activityModal');
+  var $timeField = $modal.find('#time');
+  var $loggerNameField = $modal.find('#loggerName');
+  var $walkedField = $modal.find('#walked');
+  var $poopedField = $modal.find('#pooped');
+  var $peedField = $modal.find('#peed');
+  var $fedField = $modal.find('#fed');
+
+  // get data from modal fields
+  // note the server expects the keys to be 'name', 'trackNumber' so we use those.
+  var dataToPost = {
+    time: $timeField.val(),
+    name: $loggerNameField.val(),
+    walked: $walkedField.val(),
+    pooped: $poopedField.val(),
+    peed: $peedField.val(),
+    fed: $fedField.val()
+  };
+  var dogId = $modal.data('dogId');
+  console.log('retrieved ', time, loggerName, walked, pooped, peed, fed);
+  // POST to SERVER
+  var activityPostToServerUrl = '/api/dogs/'+ dogId + '/activitylogs';
+  $.post(activityPostToServerUrl, dataToPost, function(data) {
+    console.log('received data from post to /activitylogs:', data);
+    // clear form
+    $timeField.val('');
+    $loggerNameField.val('');
+    $walkedField.val('');
+    $poopedField.val('');
+    $peedField.val('');
+    $fedField.val('');
+
+    // close modal
+    $modal.modal('hide');
+    // update the correct dog to show the new activitylog
+    $.get('/api/dogs/' + dogId, function(data) {
+      // remove the current instance of the dog from the page
+      $('[data-dog-id=' + dogId + ']').remove();
+      // re-render it with the new dog data (including activity logs)
+      renderDog(data);
+    });
+  }).error(function(err) {
+    console.log('post to /api/dogs/:dogId/activitylogs resulted in error', err);
+  });
+}

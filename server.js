@@ -37,8 +37,9 @@ app.get('/', function homepage (req, res) {
 app.get('/api', controllers.api.index);
 
 app.get('/api/dogs', controllers.dogs.index);
+app.get('/api/dogs/:dogId', controllers.dogs.show);
 app.post('/api/dogs', controllers.dogs.create);
-//app.post('/api/dogs/:dogId/dogs', controllers.albumsSongs.create);
+app.post('/api/dogs/:dogId/activitylogs', controllers.dogsActivityLogs.create);
 
 
 
