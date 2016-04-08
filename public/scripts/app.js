@@ -16,6 +16,8 @@ $(document).ready(function() {
     });
     $(this).trigger("reset");
   });
+
+  $('#dogTarget').on('click', '.add-activity', handleAddActivityClick);
 });
 
 
@@ -29,10 +31,12 @@ function renderDog(dog) {
 }
 
 // when the add activity button is clicked, display the modal
-// function handleAddActivityClick(e) {
-//   console.log('add-activity clicked!');
-//   var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
-//   console.log('id',currentAlbumId);
-//   $('#songModal').data('album-id', currentAlbumId);
-//   $('#songModal').modal();  // display the modal!
-// }
+function handleAddActivityClick(e) {
+  console.log('add-activity clicked!');
+  var currentDogId = $(this).closest('.dog').data('dog-id'); // "5665ff1678209c64e51b4e7b"
+  console.log('id',currentDogId);
+  $('#activityModal').data('dog-id', currentDogId);
+  console.log('dog-id');
+  $('#activityModal').modal('show');  // display the modal!
+  console.log('modal');
+}
