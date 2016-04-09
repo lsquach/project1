@@ -8,6 +8,8 @@ $(document).ready(function() {
     dogs.forEach(function(dog) {
       renderDog(dog);
     });
+    $('#activity-section').on('click', '.delete-activity', handleDeleteActivityClick);
+    console.log('delete activity ');
   });
 
   $('#newDogForm').on('submit', function(e) {
@@ -27,8 +29,6 @@ $(document).ready(function() {
   $('#saveActivity').on('click', handleNewActivitySubmit);
   $('#dogTarget').on('click', '.delete-dog', handleDeleteDogClick);
 
-  $('#activity-section').on('click', '.delete-activity', handleDeleteActivityClick);
-  console.log('delete activity ', handleDeleteActivityClick);
 });
 
 function renderDog(dog) {

@@ -23,7 +23,7 @@
     <div class="container">
       <h1>Did he poop?</h1>
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <!-- <div class="col-md-8 col-md-offset-2"> -->
           <form class="form-inline" id="newDogForm">
           <div class="form-group">
             <input type="text" class="form-control" name="name" placeholder="Name">
@@ -33,9 +33,11 @@
           </div>
           <button type="submit" class="btn btn-info">Add</button>
           </form>
+
           <div id="dogTarget">
             <script id="dog-template" type="text/x-handlebars-template">
               <div class="row dog" data-dog-id="{{_id}}">
+              <div class="col-md-6 col-md">
               <hr>
               <p>
                 Name: <b>{{name}}</b>
@@ -48,7 +50,9 @@
                 <button class="btn btn-info update-dog">Update Dog</button>
 
               </p>
+              </div> <!--end of col 1 -->
               <div class="activity-section">
+              <div class="col-md-6 col-md">
               <h2> Activity Log</h2>
               <div class='activity-button'>
                   <button class='btn btn-primary add-activity'>Add Activity</button>
@@ -68,15 +72,17 @@
                 <button class="btn btn-info update-activity">Update Activity</button>
                 <button class="btn btn-warning delete-activity" data-activity-id={{_id}}>Delete Activity</button>
               </div>
+              <br>
               {{/each}}
             </div>
+          </div> <!--end of col 2-->
             </div>
             </div>
           </script>
           </div>
           <hr>
           <h4><a href="/api">Read My API Documentation</a></h4>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
     <!-- begin activityModal: this is not visible until you call .modal() on it -->
