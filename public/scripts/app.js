@@ -1,7 +1,10 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
-  $.get('/api/dogs').success(function (dogs) {
 
+  var dogHtml = $('#dog-template').html();
+  var dogsTemplate = Handlebars.compile(dogHtml);
+
+  $.get('/api/dogs').success(function (dogs) {
     dogs.forEach(function(dog) {
       renderDog(dog);
     });
@@ -24,9 +27,15 @@ $(document).ready(function() {
   $('#saveActivity').on('click', handleNewActivitySubmit);
   $('#dogTarget').on('click', '.delete-dog', handleDeleteDogClick);
 
-  $('#blah').on('click', '.delete-activity', handleDeleteActivityClick);
+  $('#activity-section').on('click', '.delete-activity', handleDeleteActivityClick);
   console.log('delete activity ', handleDeleteActivityClick);
 });
+
+function renderDog(dog) {
+  console.log('rendering dog', dog);
+  var html = dogsTemplate(dog);
+  $('#dogTarget').prepend(html);
+}
 
 // when a delete button for an album is clicked
 function handleDeleteDogClick(e) {

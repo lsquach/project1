@@ -26,7 +26,7 @@ function destroy(req, res) {
     var correctActivity = foundDog.activityLog.id(req.params.activityLogId);
     if (correctActivity) {
       correctActivity.remove();
-      // resave the dog now that the activity is gone
+      // resave the dog now that the ac is gone
       foundDog.save(function(err, saved) {
         console.log('REMOVED ', correctActivity.name, 'FROM ', saved.activityLog);
         res.json(correctActivity);
