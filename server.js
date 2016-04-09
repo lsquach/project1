@@ -39,6 +39,8 @@ app.get('/api', controllers.api.index);
 app.get('/api/dogs', controllers.dogs.index);
 app.get('/api/dogs/:dogId', controllers.dogs.show);
 app.post('/api/dogs', controllers.dogs.create);
+app.delete('/api/dogs/:dogId', controllers.dogs.destroy);
+app.delete('/api/dogs/:dogId/activitylogs/:activityLogId', controllers.dogsActivityLogs.destroy);
 app.post('/api/dogs/:dogId/activitylogs', controllers.dogsActivityLogs.create);
 
 

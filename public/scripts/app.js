@@ -1,6 +1,7 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
   $.get('/api/dogs').success(function (dogs) {
+
     dogs.forEach(function(dog) {
       renderDog(dog);
     });
@@ -18,9 +19,32 @@ $(document).ready(function() {
   });
 
   $('#dogTarget').on('click', '.add-activity', handleAddActivityClick);
+  console.log('add activity', handleAddActivityClick);
 
   $('#saveActivity').on('click', handleNewActivitySubmit);
+  $('#dogTarget').on('click', '.delete-dog', handleDeleteDogClick);
+
+  $('#blah').on('click', '.delete-activity', handleDeleteActivityClick);
+  console.log('delete activity ', handleDeleteActivityClick);
 });
+
+// when a delete button for an album is clicked
+function handleDeleteDogClick(e) {
+  var dogId = $(this).parents('.dog').data('dog-id');
+  console.log('someone wants to delete dog id=' + dogId );
+  $.ajax({
+    url: '/api/dogs/' + dogId,
+    method: 'DELETE',
+    success: handleDeleteDogSuccess
+  });
+}
+
+// callback after DELETE /api/albums/:id
+function handleDeleteDogSuccess(data) {
+  var deletedDogId = data._id;
+  console.log('removing the following dog from the page:', deletedDogId);
+  $('div[data-dog-id=' + deletedDogId + ']').remove();
+}
 
 // this function takes a single dog and renders it to the page
 function renderDog(dog) {
@@ -31,15 +55,22 @@ function renderDog(dog) {
   $('#dogTarget').prepend(html);
 }
 
+function fetchAndReRenderAlbumWithId(albumId) {
+  $.get('/api/dogs/' + dogId, function(data) {
+    // remove the current instance of the album from the page
+    $('div[data-dog-id=' + dogId + ']').remove();
+    // re-render it with the new album data (including songs)
+    renderDog(data);
+  });
+}
+
 // when the add activity button is clicked, display the modal
 function handleAddActivityClick(e) {
   console.log('add-activity clicked!');
   var currentDogId = $(this).closest('.dog').data('dog-id'); // "5665ff1678209c64e51b4e7b"
   console.log('id',currentDogId);
   $('#activityModal').data('dog-id', currentDogId);
-  console.log('dog-id');
   $('#activityModal').modal('show');  // display the modal!
-  console.log('modal');
 }
 
 function handleNewActivitySubmit(e) {
@@ -75,7 +106,6 @@ function handleNewActivitySubmit(e) {
     $poopedField.val('');
     $peedField.val('');
     $fedField.val('');
-    // $(this).trigger("reset");
 
     // close modal
     $modal.modal('hide');
@@ -89,4 +119,34 @@ function handleNewActivitySubmit(e) {
   }).error(function(err) {
     console.log('post to /api/dogs/:dogId/activitylogs resulted in error', err);
   });
+}
+
+// when an activity delete button is clicked
+function handleDeleteActivityClick(e) {
+  console.log('delete activity', handleDeleteActivityClick);
+  e.preventDefault();
+  console.log('delete activity', handleDeleteActivityClick);
+  var $thisButton = $(this);
+  var activityLogId = $thisButton.data('activity-id');
+  var dogId = $thisButton.closest('.dog').data('dog-id');
+
+  var url = '/api/dogs/' + dogId + '/activitylogs/' + activityLogId;
+  console.log('send DELETE ', url);
+  $.ajax({
+    method: 'DELETE',
+    url: url,
+    success: handleActivityDeleteResponse
+  });
+  console.log('delete activity', handleDeleteActivityClick);
+}
+
+function handleActivityDeleteResponse(data) {
+  console.log('handleActivityDeleteResponse got ', data);
+  var activityLogId = data._id;
+  var $formRow = $('form#' + activityLogId);
+  // since albumId isn't passed to this function, we'll deduce it from the page
+  var albumId = $formRow.data('dog-id');
+  // remove that song edit form from the page
+  $formRow.remove();
+  fetchAndReRenderDogWithId(dogID);
 }

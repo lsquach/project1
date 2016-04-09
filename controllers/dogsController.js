@@ -30,7 +30,10 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-  // FILL ME IN !
+  db.Dog.findOneAndRemove({ _id: req.params.dogId }, function(err, foundDog){
+    // note you could send just send 204, but we're sending 200 and the deleted entity
+    res.json(foundDog);
+  });
 }
 
 function update(req, res) {

@@ -44,16 +44,19 @@
                 <img src="{{image}}" class="img-size">
                 <br>
                 <br>
-                <button type="button" name="button" class="deleteBtn btn btn-warning" data-id={{_id}}>Delete</button>
+                <button class="btn btn-warning delete-dog">Delete Dog</button>
+                <button class="btn btn-info update-dog">Update Dog</button>
+
               </p>
               <div class="activity-section">
               <h2> Activity Log</h2>
-              <div class='actvity-button'>
+              <div class='activity-button'>
                   <button class='btn btn-primary add-activity'>Add Activity</button>
               </div>
               <br>
+              <div class="activity-view">
               {{#each activityLog}}
-              <div class="activity">
+              <div class="activity" id="blah">
                 <ul>
                   <li>Time: {{time}}</li>
                   <li>Name: {{name}}</li>
@@ -62,8 +65,11 @@
                   <li>Peed?: {{#if peed}} Yes {{else}} No{{/if}}</li>
                   <li>Fed?: {{#if fed}} Yes {{else}} No{{/if}}</li>
                 </ul>
+                <button class="btn btn-info update-activity">Update Activity</button>
+                <button class="btn btn-warning delete-activity" data-activity-id={{_id}}>Delete Activity</button>
               </div>
               {{/each}}
+            </div>
             </div>
             </div>
           </script>
