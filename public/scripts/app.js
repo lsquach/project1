@@ -7,9 +7,9 @@ $(document).ready(function() {
   $.get('/api/dogs').success(function (dogs) {
     dogs.forEach(function(dog) {
       renderDog(dog);
+      $('.activity-view').on('click', '.delete-activity', handleDeleteActivityClick);
+      console.log('delete activity ', handleDeleteActivityClick);
     });
-    $('#activity-section').on('click', '.delete-activity', handleDeleteActivityClick);
-    console.log('delete activity ');
   });
 
   $('#newDogForm').on('submit', function(e) {
@@ -64,13 +64,18 @@ function renderDog(dog) {
   $('#dogTarget').prepend(html);
 }
 
-function fetchAndReRenderAlbumWithId(albumId) {
+function fetchAndReRenderDogWithId(dogId) {
+  console.log('delete activity 7');
   $.get('/api/dogs/' + dogId, function(data) {
+    console.log('delete activity 8');
     // remove the current instance of the album from the page
     $('div[data-dog-id=' + dogId + ']').remove();
+    console.log('delete activity 9');
     // re-render it with the new album data (including songs)
     renderDog(data);
+    console.log('delete activity 10');
   });
+  console.log('delete activity 11');
 }
 
 // when the add activity button is clicked, display the modal
@@ -132,9 +137,9 @@ function handleNewActivitySubmit(e) {
 
 // when an activity delete button is clicked
 function handleDeleteActivityClick(e) {
-  console.log('delete activity', handleDeleteActivityClick);
+  console.log('delete activity 1');
   e.preventDefault();
-  console.log('delete activity', handleDeleteActivityClick);
+  console.log('delete activity 2');
   var $thisButton = $(this);
   var activityLogId = $thisButton.data('activity-id');
   var dogId = $thisButton.closest('.dog').data('dog-id');
@@ -146,7 +151,7 @@ function handleDeleteActivityClick(e) {
     url: url,
     success: handleActivityDeleteResponse
   });
-  console.log('delete activity', handleDeleteActivityClick);
+  console.log('delete activity 3');
 }
 
 function handleActivityDeleteResponse(data) {
@@ -154,8 +159,11 @@ function handleActivityDeleteResponse(data) {
   var activityLogId = data._id;
   var $formRow = $('form#' + activityLogId);
   // since albumId isn't passed to this function, we'll deduce it from the page
-  var albumId = $formRow.data('dog-id');
+  var dogId = $formRow.data('dog-id');
   // remove that song edit form from the page
+  console.log('delete activity 4');
   $formRow.remove();
-  fetchAndReRenderDogWithId(dogID);
+  console.log('delete activity 5');
+  fetchAndReRenderDogWithId(dogId);
+  console.log('delete activity 6');
 }
