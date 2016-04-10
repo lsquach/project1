@@ -21,55 +21,65 @@
   </head>
   <body>
     <div class="container">
-      <h1>Did he poop?</h1>
       <div class="row">
-        <!-- <div class="col-md-8 col-md-offset-2"> -->
-          <form class="form-inline" id="newDogForm">
-          <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="image" placeholder="Image Link">
-          </div>
-          <button type="submit" class="btn btn-info">Add</button>
-          </form>
+        <div class="col-md-8 col-md-offset-2">
+          <h1>Did he poop?</h1>
+          <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Add Dog
+            </button>
+          <p>
+
+
+            <div class="collapse" id="collapseExample">
+              <div class="card card-block">
+                <form class="form-inline" id="newDogForm">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="image" placeholder="Image Link" required>
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+                </form>
+              </div>
+            </div>
+
 
           <div id="dogTarget">
             <script id="dog-template" type="text/x-handlebars-template">
               <div class="row dog" data-dog-id="{{_id}}">
-              <div class="col-md-6 col-md">
+              <div class="col-md-4 col-md">
               <hr>
               <p>
-                Name: <b>{{name}}</b>
+                <div class="dog-profile">
+                <img src="{{image}}" class="img-size img-circle">
                 <br>
-                <br>
-                <img src="{{image}}" class="img-size">
-                <br>
-                <br>
+                <b>{{name}}</b>
+              </div>
+              <br>
                 <button class="btn btn-warning delete-dog">Delete Dog</button>
-                <button class="btn btn-info update-dog">Update Dog</button>
+                <!-- <button class="btn btn-info update-dog">Update Dog</button> -->
+                <button class='btn btn-primary add-activity'>Add Activity</button>
 
               </p>
               </div> <!--end of col 1 -->
               <div class="activity-section">
-              <div class="col-md-6 col-md">
+              <div class="col-md-8 col-md">
               <h2> Activity Log</h2>
-              <div class='activity-button'>
-                  <button class='btn btn-primary add-activity'>Add Activity</button>
-              </div>
               <br>
               <div class="activity-view">
               {{#each activityLog}}
-              <div class="activity" id="{{_id}}" data-dog-id="{{../dogId}}" >
+              <div class="activity" id="{{_id}}" data-dog-id="{{../dogId}}">
                 <ul>
                   <li>Time: {{time}}</li>
-                  <li>Name: {{name}}</li>
                   <li>Walked?: {{#if walked}} Yes {{else}} No{{/if}}</li>
                   <li>Pooped?: {{#if pooped}} Yes {{else}} No{{/if}}</li>
                   <li>Peed?: {{#if peed}} Yes {{else}} No{{/if}}</li>
                   <li>Fed?: {{#if fed}} Yes {{else}} No{{/if}}</li>
+                  <li>Name: {{name}}</li>
                 </ul>
-                <button class="btn btn-info update-activity">Update Activity</button>
+                <!-- <button class="btn btn-info update-activity">Update Activity</button> -->
                 <button class="btn btn-warning delete-activity" data-activity-id={{_id}}>Delete Activity</button>
               </div>
               <br>
@@ -82,7 +92,7 @@
           </div>
           <hr>
           <h4><a href="/api">Read My API Documentation</a></h4>
-        <!-- </div> -->
+        </div>
       </div>
     </div>
     <!-- begin activityModal: this is not visible until you call .modal() on it -->
@@ -91,24 +101,16 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Acitivity</h4>
+            <h4 class="modal-title">Add Activity</h4>
           </div>
           <div class="modal-body">
 
-            <fieldset class='form-horizontal'>
+            <form id="activityForm" method="post" class="form-horizontal">
               <!-- Text input-->
               <div class="form-group">
                 <label class="col-md-4 control-label" for="time">Time</label>
                 <div class="col-md-4">
-                  <input id="time" name="time" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="loggerName">Name</label>
-                <div class="col-md-4">
-                  <input id="loggerName" name="loggerName" type="text" placeholder="" class="form-control input-md">
+                  <input id="time" name="time" type="text" placeholder="" class="form-control input-md" required="required">
                 </div>
               </div>
 
@@ -116,8 +118,12 @@
               <div class="form-group">
                 <label class="col-md-4 control-label" for="walked">Walked?</label>
                 <div class="col-md-4">
-                  <input id="walked" name="walked" type="radio"  value="yes">yes<br>
-                  <input id="walked" name="walked" type="radio"  value="no">no
+                  <label class="radio-inline">
+                  <input id="walked" name="walked inlineRadioOptions" type="radio"  value="yes">Yes
+                  </label>
+                  <label class="radio-inline">
+                  <input id="walked" name="walked inlineRadioOptions" type="radio"  value="no">No
+                  </label>
                 </div>
               </div>
 
@@ -125,8 +131,12 @@
               <div class="form-group">
                 <label class="col-md-4 control-label" for="pooped">Pooped?</label>
                 <div class="col-md-4">
-                  <input id="pooped" name="pooped" type="radio"  value="yes">yes<br>
-                  <input id="pooped" name="pooped" type="radio"  value="no">no
+                  <label class="radio-inline">
+                  <input id="pooped" name="pooped inlineRadioOptions" type="radio"  value="yes">Yes
+                  </label>
+                  <label class="radio-inline">
+                  <input id="pooped" name="pooped inlineRadioOptions" type="radio"  value="no">No
+                </label>
                 </div>
               </div>
 
@@ -134,8 +144,12 @@
               <div class="form-group">
                 <label class="col-md-4 control-label" for="peed">Peed?</label>
                 <div class="col-md-4">
-                  <input id="peed" name="peed" type="radio"  value="yes">yes<br>
-                  <input id="peed" name="peed" type="radio"  value="no">no
+                  <label class="radio-inline">
+                  <input id="peed" name="peed inlineRadioOptions" type="radio"  value="yes">Yes
+                  </label>
+                  <label class="radio-inline">
+                  <input id="peed" name="peed inlineRadioOptions" type="radio"  value="no">No
+                </label>
                 </div>
               </div>
 
@@ -143,18 +157,28 @@
               <div class="form-group">
                 <label class="col-md-4 control-label" for="fed">Fed?</label>
                 <div class="col-md-4">
-                  <input id="fed" name="fed" type="radio"  value="yes">yes<br>
-                  <input id="fed" name="fed" type="radio"  value="no">no
+                  <label class="radio-inline">
+                  <input id="fed" name="fed inlineRadioOptions" type="radio"  value="yes">Yes
+                  </label>
+                  <label class="radio-inline">
+                  <input id="fed" name="fed inlineRadioOptions" type="radio"  value="no">No
+                  </label>
                 </div>
               </div>
 
-            </fieldset>
-
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="loggerName">Name</label>
+                <div class="col-md-4">
+                  <input id="loggerName" name="loggerName" type="text" placeholder="" class="form-control input-md" required="required">
+                </div>
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" id="saveActivity">Save</button>
           </div>
+        </form>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->

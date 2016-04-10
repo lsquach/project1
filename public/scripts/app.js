@@ -7,13 +7,14 @@ $(document).ready(function() {
   $.get('/api/dogs').success(function (dogs) {
     dogs.forEach(function(dog) {
       renderDog(dog);
-      $('.activity-view').on('click', '.delete-activity', handleDeleteActivityClick);
+      $('.activity').on('click', '.delete-activity', handleDeleteActivityClick);
       console.log('delete activity ', handleDeleteActivityClick);
     });
   });
 
   $('#newDogForm').on('submit', function(e) {
     e.preventDefault();
+    $(this).collapse('hide');
     var formData = $(this).serialize();
     console.log('formData', formData);
     $.post('/api/dogs', formData, function(dog) {
@@ -23,11 +24,16 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
+  // $('#activityModal').on('hidden.bs.modal', function() {
+  //   $('#activityForm').formValidation('resetForm', true);
+  // });
+
   $('#dogTarget').on('click', '.add-activity', handleAddActivityClick);
   console.log('add activity', handleAddActivityClick);
 
   $('#saveActivity').on('click', handleNewActivitySubmit);
   $('#dogTarget').on('click', '.delete-dog', handleDeleteDogClick);
+
 
 });
 
@@ -92,10 +98,10 @@ function handleNewActivitySubmit(e) {
   var $modal = $('#activityModal');
   var $timeField = $modal.find('#time');
   var $loggerNameField = $modal.find('#loggerName');
-  var $walkedField = $modal.find('#walked');
-  var $poopedField = $modal.find('#pooped');
-  var $peedField = $modal.find('#peed');
-  var $fedField = $modal.find('#fed');
+  var $walkedField = $modal.find('#walked, input:radio');
+  var $poopedField = $modal.find('#pooped, input:radio');
+  var $peedField = $modal.find('#peed, input:radio');
+  var $fedField = $modal.find('#fed, input:radio');
 
   // get data from modal fields
   // note the server expects the keys to be 'name', 'trackNumber' so we use those.
@@ -116,10 +122,11 @@ function handleNewActivitySubmit(e) {
     // clear form
     $timeField.val('');
     $loggerNameField.val('');
-    $walkedField.val('');
-    $poopedField.val('');
-    $peedField.val('');
-    $fedField.val('');
+    $walkedField.prop('checked', false);
+    $poopedField.prop('checked', false);
+    $peedField.prop('checked', false);
+    $fedField.prop('checked', false);
+
 
     // close modal
     $modal.modal('hide');
@@ -134,6 +141,8 @@ function handleNewActivitySubmit(e) {
     console.log('post to /api/dogs/:dogId/activitylogs resulted in error', err);
   });
 }
+
+
 
 // when an activity delete button is clicked
 function handleDeleteActivityClick(e) {

@@ -1,10 +1,12 @@
 .img-size {
-  width: 200px;
-  height: 190px;
-  border-radius: 20px;
+  width: 171px;
+  height: 180px;
 }
 .activity {
   background-color: gray;
   border-radius: 15px;
   color: white;
+}
+.dog-profile {
+  text-align: center;
 }
