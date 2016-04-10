@@ -21,13 +21,17 @@ function create(req, res) {
 
 function destroy(req, res) {
   db.Dog.findById(req.params.dogId, function(err, foundDog) {
-    console.log(foundDog);
+    console.log('FOUND DOG', foundDog);
     // we've got the dog, now find the activity within it
     var correctActivity = foundDog.activityLog.id(req.params.activityLogId);
     if (correctActivity) {
       correctActivity.remove();
+      console.log('FOUND DOG 2', foundDog);
       // resave the dog now that the ac is gone
       foundDog.save(function(err, saved) {
+        if (err) {
+          console.log(err);
+        }
         console.log('REMOVED ', correctActivity.name, 'FROM ', saved.activityLog);
         res.json(correctActivity);
       });

@@ -14,6 +14,8 @@ body {
 }
 .dog-profile {
   text-align: center;
+  font-size: 15px;
+  color: white;
 }
 .dog {
   border-radius: 15px;
@@ -31,4 +33,10 @@ ul {
 
 h1 {
   font-size: 45px;
+}
+/*.del-act-btn {
+  width: 200px;
+}*/
+.delete-activity {
+  float: right
 }

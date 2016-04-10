@@ -10,6 +10,8 @@ var DogSchema = new Schema({
   activityLog: [ActivityLog.schema],
 });
 
+DogSchema.set('versionKey', false);
+
 var Dog = mongoose.model('Dog', DogSchema);
 
 module.exports = Dog;
