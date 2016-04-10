@@ -7,7 +7,7 @@ $(document).ready(function() {
   $.get('/api/dogs').success(function (dogs) {
     dogs.forEach(function(dog) {
       renderDog(dog);
-      $('.activity').on('click', '.delete-activity', handleDeleteActivityClick);
+      $('#dogTarget').on('click', '.delete-activity', handleDeleteActivityClick);
       console.log('delete activity ', handleDeleteActivityClick);
     });
   });
@@ -23,9 +23,6 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
-  // $('#activityModal').on('hidden.bs.modal', function() {
-  //   $('#activityForm').formValidation('resetForm', true);
-  // });
 
   $('#dogTarget').on('click', '.add-activity', handleAddActivityClick);
   console.log('add activity', handleAddActivityClick);
