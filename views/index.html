@@ -60,7 +60,7 @@
               <br>
               <div class="activity-view">
               {{#each activityLog}}
-              <div class="activity">
+              <div class="activity" id="{{_id}}" data-dog-id="{{../dogId}}" >
                 <ul>
                   <li>Time: {{time}}</li>
                   <li>Name: {{name}}</li>

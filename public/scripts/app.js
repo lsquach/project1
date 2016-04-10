@@ -157,12 +157,12 @@ function handleDeleteActivityClick(e) {
 function handleActivityDeleteResponse(data) {
   console.log('handleActivityDeleteResponse got ', data);
   var activityLogId = data._id;
-  var $formRow = $('form#' + activityLogId);
+  var $divRow = $('div#' + activityLogId);
   // since albumId isn't passed to this function, we'll deduce it from the page
-  var dogId = $formRow.data('dog-id');
+  var dogId = $divRow.data('dog-id');
   // remove that song edit form from the page
   console.log('delete activity 4');
-  $formRow.remove();
+  $divRow.remove();
   console.log('delete activity 5');
   fetchAndReRenderDogWithId(dogId);
   console.log('delete activity 6');
