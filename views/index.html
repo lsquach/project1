@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
     <!-- VENDOR SCRIPTS -->
     <script src="vendor/jQuery/dist/jquery.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -49,9 +49,7 @@
           <div id="dogTarget">
             <script id="dog-template" type="text/x-handlebars-template">
               <div class="row dog" data-dog-id="{{_id}}">
-              <div class="col-md-4 col-md">
-              <hr>
-              <p>
+              <div class="col-md-4 col-md">              <p>
                 <div class="dog-profile">
                 <img src="{{image}}" class="img-size img-circle">
                 <br>
@@ -66,21 +64,23 @@
               </div> <!--end of col 1 -->
               <div class="activity-section">
               <div class="col-md-8 col-md">
-              <h2> Activity Log</h2>
+              <!-- <h2> Activity Log</h2> -->
               <br>
               <div class="activity-view">
               {{#each activityLog}}
               <div class="activity" id="{{_id}}" data-dog-id="{{../dogId}}">
-                <ul>
-                  <li>Time: {{time}}</li>
-                  <li>Walked?: {{#if walked}} Yes {{else}} No{{/if}}</li>
-                  <li>Pooped?: {{#if pooped}} Yes {{else}} No{{/if}}</li>
-                  <li>Peed?: {{#if peed}} Yes {{else}} No{{/if}}</li>
-                  <li>Fed?: {{#if fed}} Yes {{else}} No{{/if}}</li>
-                  <li>Name: {{name}}</li>
-                </ul>
+                <div class="list-view">
+                  <ul>
+                    <li>Time: {{time}}</li>
+                    <li>Walked? {{#if walked}} Yes {{else}} No{{/if}}</li>
+                    <li>Pooped? {{#if pooped}} Yes {{else}} No{{/if}}</li>
+                    <li>Peed? {{#if peed}} Yes {{else}} No{{/if}}</li>
+                    <li>Fed? {{#if fed}} Yes {{else}} No{{/if}}</li>
+                    <li>Name: {{name}}</li>
+                  </ul>
+                </div>
+                <button class="btn btn-warning delete-activity pull-right" data-activity-id={{_id}}>Delete Activity</button>
                 <!-- <button class="btn btn-info update-activity">Update Activity</button> -->
-                <button class="btn btn-warning delete-activity" data-activity-id={{_id}}>Delete Activity</button>
               </div>
               <br>
               {{/each}}
@@ -88,6 +88,7 @@
           </div> <!--end of col 2-->
             </div>
             </div>
+            <br>
           </script>
           </div>
           <hr>

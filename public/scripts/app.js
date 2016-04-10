@@ -14,7 +14,6 @@ $(document).ready(function() {
 
   $('#newDogForm').on('submit', function(e) {
     e.preventDefault();
-    $(this).collapse('hide');
     var formData = $(this).serialize();
     console.log('formData', formData);
     $.post('/api/dogs', formData, function(dog) {
