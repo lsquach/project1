@@ -37,7 +37,17 @@ function destroy(req, res) {
 }
 
 function update(req, res) {
-  // FILL ME IN !
+  console.log('updating with data', req.body);
+  db.Dog.findById(req.params.dogId, function(err, foundDog) {
+    if(err) { console.log('dogsController.update error', err); }
+    foundDog.name = req.body.name;
+    foundDog.image = req.body.image;
+    foundDog.save(function(err, savedDog) {
+      if(err) { console.log('saving altered dog failed'); }
+      res.json(savedDog);
+    });
+  });
+
 }
 
 
