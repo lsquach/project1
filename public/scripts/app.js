@@ -48,11 +48,13 @@ function handleDogEditClick(e) {
 
   // get the album name and replace its field with an input element
   var dogName = $dogRow.find('span.dog-name').text();
-  $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" required' + dogName + '"></input>');
+  // $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" required' + dogName + '"></input>');
+  $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" required> </input>');
+
 
   // get the artist name and replace its field with an input element
   var dogImage = $dogRow.find('span.dog-image').text();
-  $dogRow.find('span.dog-image').html('<br>' + '<br>' + '<input class="form-control edit-dog-image" placeholder="Image Link" required' + dogImage + '"></input>');
+  $dogRow.find('span.dog-image').html('<br>' + '<br>' + '<input class="form-control edit-dog-image" placeholder="Image Link" required> </input>');
 }
 
 // after editing an album, when the save changes button is clicked
