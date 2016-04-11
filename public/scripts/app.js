@@ -27,7 +27,11 @@ $(document).ready(function() {
   $('#dogTarget').on('click', '.add-activity', handleAddActivityClick);
   console.log('add activity', handleAddActivityClick);
 
+  $('#dogTarget').on('click', '.update-activity', handleUpdateActivityClick);
+  console.log('add activity', handleAddActivityClick);
+
   $('#saveActivity').on('click', handleNewActivitySubmit);
+
   $('#dogTarget').on('click', '.delete-dog', handleDeleteDogClick);
 
 
@@ -92,6 +96,35 @@ function handleAddActivityClick(e) {
   $('#activityModal').data('dog-id', currentDogId);
   $('#activityModal').modal('show');  // display the modal!
 }
+
+function handleUpdateActivityClick(e) {
+  console.log('update-activity clicked!');
+  var $thisButton = $(this);
+  var activityLogId = $thisButton.data('act-update-id');
+  var dogId = $thisButton.closest('.dog').data('dog-id');
+  var url = '/api/dogs/' + dogId + '/activitylogs/' + activityLogId;
+  console.log('send UPDATE ', url);
+
+  $.get('/api/dogs/' + dogId + "/activitylogs", function(activitylogs) {
+    console.log('got back activitylogs: ', activitylogs);
+    populateUpdateActivityModal(activitylogs, dogId);
+    $('#activityModal').data('dog-id', dogId);
+    $('#activityModal').modal('show');  // display the modal!
+  });
+
+}
+
+// function populateUpdateActivityModal(activitylogs, currentDogId) {
+//   // prep the template
+//   var templateHtml = $('#song-edit-template').html();
+//   var template = Handlebars.compile(templateHtml);
+//   // use the template's #each to render all songs at once
+//   // note that DELETE/PUT will need the albumId to construct the URL,
+//   //   so we'll plant that on the form too
+//   songsForms = template({songs: songs, albumId: albumId});
+//   // find the modal's body and replace it with the generated html
+//   $('#editSongsModalBody').html(songsForms);
+// }
 
 function handleNewActivitySubmit(e) {
   e.preventDefault();

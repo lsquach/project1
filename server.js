@@ -43,6 +43,8 @@ app.delete('/api/dogs/:dogId', controllers.dogs.destroy);
 app.delete('/api/dogs/:dogId/activitylogs/:activityLogId', controllers.dogsActivityLogs.destroy);
 app.post('/api/dogs/:dogId/activitylogs', controllers.dogsActivityLogs.create);
 app.put('/api/dogs/:dogId/activitylogs/:activityLogId', controllers.dogsActivityLogs.update);
+app.get('/api/dogs/:dogId/activitylogs/:activityLogId', controllers.dogsActivityLogs.show);
+
 
 
 
