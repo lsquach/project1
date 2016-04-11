@@ -46,18 +46,20 @@ function handleDogEditClick(e) {
   $dogRow.find('.update-dog').toggleClass('hidden');
 
 
-  // get the album name and replace its field with an input element
+  // get the dog name and replace its field with an input element
   var dogName = $dogRow.find('span.dog-name').text();
   // $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" required' + dogName + '"></input>');
-  $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" required> </input>');
+  $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" value="' + dogName + '"> </input>');
 
 
-  // get the artist name and replace its field with an input element
-  var dogImage = $dogRow.find('span.dog-image').text();
-  $dogRow.find('span.dog-image').html('<br>' + '<br>' + '<input class="form-control edit-dog-image" placeholder="Image Link" required> </input>');
+  // get the image and show an input element
+  var dogImageField = $dogRow.find('span.dog-image-field').text();
+  var dogImage = $dogRow.find('img.dog-image').attr('src');
+  console.log(dogImage);
+  $dogRow.find('span.dog-image-field').html('<br>' + '<br>' + '<input class="form-control edit-dog-image" placeholder="Image Link" value="' + dogImage + '"> </input>');
 }
 
-// after editing an album, when the save changes button is clicked
+// after editing a dog, when the save changes button is clicked
 function handleSaveChangesClick(e) {
   var dogId = $(this).parents('.dog').data('dog-id'); // $(this).closest would have worked fine too
   var $dogRow = $('[data-dog-id=' + dogId + ']');
@@ -80,7 +82,7 @@ function handleDogUpdatedResponse(data) {
   console.log('response to update', data);
 
   var dogId = data._id;
-  // scratch this album from the page
+  // remove this dog from the page
   $('[data-dog-id=' + dogId + ']').remove();
   // and then re-draw it with the updates ;-)
   renderDog(data);
