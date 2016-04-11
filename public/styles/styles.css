@@ -1,5 +1,5 @@
 body {
-  background-color: #00aba9;
+  /*background-color: #223311;*/
   font-family: 'Poppins', sans-serif;
 }
 
@@ -8,11 +8,11 @@ body {
 }
 .jumbotron {
   position: relative;
-  background: #000 url(http://www.hd-wallpapersdownload.com/upload/bulk-upload/images-of-puppy-dowload.jpg) center center;
+  background: #000 url(http://www.hd-freewallpapers.com/upload/latest-wallpapers/really-funny-dog-pics-download.jpg) center center;
   backgound-size: cover;
-  /*width: 100%;
-  height: 100%;*/
-  /*overflow: hidden;*/
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   color: white;
 }
 .img-size {
@@ -20,7 +20,7 @@ body {
   height: 180px;
 }
 .activity {
-  background-color: #0099cc;
+  background-color: #aaff33;
   border-radius: 15px;
   color: white;
   padding: 20px;
@@ -32,7 +32,7 @@ body {
 }
 .dog {
   border-radius: 15px;
-  background-color: #800080;
+  background-color: #223311;
 }
 
 ul {

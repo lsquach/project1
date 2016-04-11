@@ -18,6 +18,7 @@ $(document).ready(function() {
     console.log('formData', formData);
     $.post('/api/dogs', formData, function(dog) {
       console.log('dog after POST', dog);
+      $('.collapse').collapse('hide');
       renderDog(dog);  //render the server's response
     });
     $(this).trigger("reset");
