@@ -30,6 +30,9 @@ ul {
     list-style-type: none;
     font-size: 18px;
 }
+li {
+  /*list-style-type: none;*/
+}
 .list-view {
   margin: 0 auto;
   width: 200px;
