@@ -82,9 +82,6 @@ function handleDogUpdatedResponse(data) {
   $('[data-dog-id=' + dogId + ']').remove();
   // and then re-draw it with the updates ;-)
   renderDog(data);
-
-  // // BONUS: scroll the change into view ;-)
-  // $('[data-album-id=' + albumId + ']')[0].scrollIntoView();
 }
 
 
