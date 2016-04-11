@@ -20,47 +20,54 @@
     <script src="/scripts/app.js"></script>
   </head>
   <body>
+    <div class="jumbotron">
+      <div class="header">
+      <h1 class="display-3">Did he poop?</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="m-y-2">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Add Dog
+        </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-block">
+            <form class="form-inline" id="newDogForm">
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="image" placeholder="Image Link" required>
+            </div>
+            <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h1>Did he poop?</h1>
-          <p>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Add Dog
-            </button>
-          <p>
-
-
-            <div class="collapse" id="collapseExample">
-              <div class="card card-block">
-                <form class="form-inline" id="newDogForm">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="image" placeholder="Image Link" required>
-                </div>
-                <button type="submit" class="btn btn-info">Submit</button>
-                </form>
-              </div>
-            </div>
 
 
           <div id="dogTarget">
             <script id="dog-template" type="text/x-handlebars-template">
               <div class="row dog" data-dog-id="{{_id}}">
-              <div class="col-md-4 col-md">              <p>
+              <div class="col-md-4 col-md">
+                <p>
                 <div class="dog-profile">
                 <img src="{{image}}" class="img-size img-circle">
                 <br>
                 <b>{{name}}</b>
-              </div>
+              <br>
               <br>
                 <button class="btn btn-warning delete-dog">Delete Dog</button>
                 <!-- <button class="btn btn-info update-dog">Update Dog</button> -->
                 <button class='btn btn-primary add-activity'>Add Activity</button>
 
               </p>
+            </div>
               </div> <!--end of col 1 -->
               <div class="activity-section">
               <div class="col-md-8 col-md">

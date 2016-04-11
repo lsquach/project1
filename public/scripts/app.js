@@ -71,7 +71,11 @@ function fetchAndReRenderDogWithId(dogId) {
   $.get('/api/dogs/' + dogId, function(data) {
     console.log('delete activity 8');
     // remove the current instance of the album from the page
-    $('div[data-dog-id=' + dogId + ']').remove();
+    $('datadogid=' + dogId).remove();
+    // $('div[data-dog-id=' + dogId + ']').remove();
+
+
+
     console.log('delete activity 9');
     // re-render it with the new album data (including songs)
     renderDog(data);

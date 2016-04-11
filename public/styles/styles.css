@@ -1,13 +1,17 @@
 body {
-  background-color: #20b2aa;
+  background-color: #00aba9;
   font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  padding: 20px;
 }
 .img-size {
   width: 171px;
   height: 180px;
 }
 .activity {
-  background-color: gray;
+  background-color: #0099cc;
   border-radius: 15px;
   color: white;
   padding: 20px;
@@ -19,7 +23,7 @@ body {
 }
 .dog {
   border-radius: 15px;
-  background-color: #6b5f77;
+  background-color: #800080;
 }
 
 ul {
@@ -34,9 +38,7 @@ ul {
 h1 {
   font-size: 45px;
 }
-/*.del-act-btn {
-  width: 200px;
-}*/
+
 .delete-activity {
   float: right
 }
