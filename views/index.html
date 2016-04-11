@@ -59,13 +59,15 @@
               <div class="col-md-4 col-md">
                 <p>
                 <div class="dog-profile">
-                <img src="{{image}}" class="img-size img-circle">
+                  <img class="img-size img-circle" src="{{image}}" >
+                <span class="dog-image">
+                </span>
                 <br>
-                <b>{{name}}</b>
+                <span class="dog-name"><b>{{name}}</b></span>
               <br>
-              <br>
+                <button class="btn btn-info update-dog">Update Dog</button>
+                <button class='btn btn-success save-dog hidden'>Save Changes</button>
                 <button class="btn btn-warning delete-dog">Delete Dog</button>
-                <!-- <button class="btn btn-info update-dog">Update Dog</button> -->
                 <button class='btn btn-primary add-activity'>Add Activity</button>
 
               </p>

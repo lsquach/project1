@@ -30,8 +30,63 @@ $(document).ready(function() {
   $('#saveActivity').on('click', handleNewActivitySubmit);
   $('#dogTarget').on('click', '.delete-dog', handleDeleteDogClick);
 
-
+  $('#dogTarget').on('click', '.update-dog', handleDogEditClick);
+  console.log('edit dog', handleDogEditClick);
+  $('#dogTarget').on('click', '.save-dog', handleSaveChangesClick);
 });
+
+function handleDogEditClick(e) {
+  var $dogRow = $(this).closest('.dog');
+  var dogId = $dogRow.data('dog-id');
+  console.log('edit dog', dogId);
+
+  // show the save changes button
+  $dogRow.find('.save-dog').toggleClass('hidden');
+  // hide the edit button
+  $dogRow.find('.update-dog').toggleClass('hidden');
+
+
+  // get the album name and replace its field with an input element
+  var dogName = $dogRow.find('span.dog-name').text();
+  $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" required' + dogName + '"></input>');
+
+  // get the artist name and replace its field with an input element
+  var dogImage = $dogRow.find('span.dog-image').text();
+  $dogRow.find('span.dog-image').html('<br>' + '<br>' + '<input class="form-control edit-dog-image" placeholder="Image Link" required' + dogImage + '"></input>');
+}
+
+// after editing an album, when the save changes button is clicked
+function handleSaveChangesClick(e) {
+  var dogId = $(this).parents('.dog').data('dog-id'); // $(this).closest would have worked fine too
+  var $dogRow = $('[data-dog-id=' + dogId + ']');
+
+  var data = {
+    name: $dogRow.find('.edit-dog-name').val(),
+    image: $dogRow.find('.edit-dog-image').val(),
+  };
+  console.log('PUTing data for album', dogId, 'with data', data);
+
+  $.ajax({
+    method: 'PUT',
+    url: '/api/dogs/' + dogId,
+    data: data,
+    success: handleDogUpdatedResponse
+  });
+}
+
+function handleDogUpdatedResponse(data) {
+  console.log('response to update', data);
+
+  var dogId = data._id;
+  // scratch this album from the page
+  $('[data-dog-id=' + dogId + ']').remove();
+  // and then re-draw it with the updates ;-)
+  renderDog(data);
+
+  // // BONUS: scroll the change into view ;-)
+  // $('[data-album-id=' + albumId + ']')[0].scrollIntoView();
+}
+
 
 function renderDog(dog) {
   console.log('rendering dog', dog);
