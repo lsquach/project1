@@ -29,10 +29,13 @@
 
 * Ability to update existing activity logs
 * Add form validations for activity log modal
-* Build function to automatically resize photo OR
-* Add image upload functionality for dog profile picture
+* Build function to automatically resize dog profile photo OR
+* Add image upload functionality
 * Delete all or reset of all activity logs
 * Add comment box in Add Activity Log modal
 
-##### Link to hosted project on GitHub
+## Link to hosted project on GitHub
 https://github.com/lsquach/project1
+
+## Link to Heroku
+https://shrouded-ridge-63422.herokuapp.com/
