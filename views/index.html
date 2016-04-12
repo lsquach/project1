@@ -51,11 +51,11 @@
     </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2"> <!-- outside column -->
         <div id="dogTarget">
           <script id="dog-template" type="text/x-handlebars-template">
             <div class="row dog" data-dog-id="{{_id}}">
-              <div class="col-md-4 col-md">
+              <div class="col-md-4 col-md"> <!--col 1 start -->
                 <div class="dog-profile">
                   <img class="img-size img-circle dog-image" src="{{image}}" >
                   <span class="dog-image-field"></span>
@@ -69,7 +69,7 @@
                   </div>
                 </div> <!--end of col 1 -->
               <div class="activity-section">
-                <div class="col-md-8 col-md">
+                <div class="col-md-8 col-md"> <!-- start of col 2 -->
                   <div class="activity-view">
                     {{#each activityLog}}
                     <div class="activity" id="{{_id}}" data-dog-id="{{../dogId}}">
@@ -98,7 +98,7 @@
         </div>
         <hr>
         <h4><a href="/api">Read My API Documentation</a></h4>
-      </div>
+      </div> <!-- end of outside column -->
     </div>
   </div>
     <!-- begin activityModal: this is not visible until you call .modal() on it -->
