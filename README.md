@@ -42,3 +42,11 @@ https://shrouded-ridge-63422.herokuapp.com/
 
 ## Screenshots
 ![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_1.png)
+![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_2.png)
+![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_3.png)
+![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_4.png)
+![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_5.png)
+![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_6.png)
+![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_7.png)
+![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_8.png)
+![alt text](https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_9.png)
