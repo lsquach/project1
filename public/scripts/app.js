@@ -52,6 +52,8 @@ function handleDogEditClick(e) {
 
   // get the image and show an input element
   var dogImageField = $dogRow.find('span.dog-image-field').text();
+  //Found that using .attr('src') will grab the image source
+  //then i was able pre-populate the Image Link field in update form
   var dogImage = $dogRow.find('img.dog-image').attr('src');
   $dogRow.find('span.dog-image-field').html('<br>' + '<br>' + '<input class="form-control edit-dog-image" placeholder="Image Link" value="' + dogImage + '"> </input>');
 }
