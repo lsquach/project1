@@ -41,4 +41,5 @@ https://github.com/lsquach/project1
 https://shrouded-ridge-63422.herokuapp.com/
 
 ## Screenshots
-https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_1.png
+![alt text][logo]
+logo: https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_1.png
