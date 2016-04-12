@@ -19,6 +19,7 @@ function create(req, res) {
   });
 }
 
+//GET 'app.get('/api/dogs/:dogId', controllers.dogs.show)'
 function show(req, res) {
   db.Dog.findById(req.params.dogId, function(err, foundDog) {
     if(err) { console.log('dogsController.show error', err); }
@@ -27,11 +28,10 @@ function show(req, res) {
   });
 }
 
-
+// app.delete('/api/dogs/:dogId/actvitylogs/:activityLogId', controllers.dogsActivityLogs.destroy);
 function destroy(req, res) {
   db.Dog.findById(req.params.dogId, function(err, foundDog) {
     console.log('FOUND DOG', foundDog);
-    // we've got the dog, now find the activity within it
     var correctActivity = foundDog.activityLog.id(req.params.activityLogId);
     if (correctActivity) {
       correctActivity.remove();
@@ -51,6 +51,7 @@ function destroy(req, res) {
 
 }
 
+// app.put('/api/dogs/:dogId/actvitylogs/:activityLogId', controllers.dogsActivityLogs.update);
 function update(req, res) {
   db.Dog.findById(req.params.dogId, function(err, foundDog) {
     console.log(foundDog);

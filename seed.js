@@ -6,11 +6,11 @@ var db = require("./models");
 var dogList =[];
 dogList.push({
               name: 'Franklin',
-              image: 'https://scontent-iad3-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10985226_10102188058480217_1443609514444524365_n.jpg?oh=f2c66ec6952e5c05272041f488f0e3f9&oe=57B63BEB',
+              image: 'https://scontent.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/12985394_10102741873435607_282708623077513920_n.jpg?oh=654541bbdc2797d2c66748f347683a30&oe=57B98FBB',
             });
 dogList.push({
               name: 'Samson',
-              image: 'https://scontent-iad3-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11412436_10102272792243077_75801405203310469_n.jpg?oh=972cc68797a62796a586f64304cbaaa4&oe=5785BDDB',
+              image: 'https://scontent.xx.fbcdn.net/hphotos-xla1/v/t1.0-9/12961583_10102741850741087_4012380804591548298_n.jpg?oh=10210ddbe9c230045693dafa58c90177&oe=57B3CED0',
             });
 
 var activityLogList = [];

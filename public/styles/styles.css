@@ -1,6 +1,6 @@
 body {
   background-color: #fffcf6;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'PT Sans Caption', sans-serif;
 }
 
 .header {
@@ -28,7 +28,7 @@ body {
 }
 .dog-profile {
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   color: white;
   padding: 20px;
 }
@@ -69,6 +69,10 @@ h1 {
 
 .activity-view {
   padding: 20px;
+}
+
+.hero-header {
+  width: 80%;
 }
 
 li {

@@ -7,6 +7,7 @@ $(document).ready(function() {
   $.get('/api/dogs').success(function (dogs) {
     dogs.forEach(function(dog) {
       renderDog(dog);
+      //catch and handle the click on delete activity button
       $('#dogTarget').on('click', '.delete-activity', handleDeleteActivityClick);
     });
   });
@@ -21,14 +22,19 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
+  //catch and handle the click on add activity button
   $('#dogTarget').on('click', '.add-activity', handleAddActivityClick);
   $('#saveActivity').on('click', handleNewActivitySubmit);
+
+  //catch and handle the click on delete dog button
   $('#dogTarget').on('click', '.delete-dog', handleDeleteDogClick);
 
+  //catch and handle the click on update dog button
   $('#dogTarget').on('click', '.update-dog', handleDogEditClick);
   $('#dogTarget').on('click', '.save-dog', handleSaveChangesClick);
 });
 
+//when the dog update button is clicked
 function handleDogEditClick(e) {
   var $dogRow = $(this).closest('.dog');
   var dogId = $dogRow.data('dog-id');
@@ -39,7 +45,6 @@ function handleDogEditClick(e) {
 
   // get the dog name and replace its field with an input element
   var dogName = $dogRow.find('span.dog-name').text();
-  // $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" required' + dogName + '"></input>');
   $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" value="' + dogName + '"> </input>');
 
   // get the image and show an input element
@@ -74,12 +79,6 @@ function handleDogUpdatedResponse(data) {
   renderDog(data);
 }
 
-
-function renderDog(dog) {
-  var html = dogsTemplate(dog);
-  $('#dogTarget').prepend(html);
-}
-
 // when a delete button for an album is clicked
 function handleDeleteDogClick(e) {
   var dogId = $(this).parents('.dog').data('dog-id');
@@ -90,7 +89,7 @@ function handleDeleteDogClick(e) {
   });
 }
 
-// callback after DELETE /api/albums/:id
+// callback after DELETE /api/dogs/:id
 function handleDeleteDogSuccess(data) {
   var deletedDogId = data._id;
   $('div[data-dog-id=' + deletedDogId + ']').remove();
@@ -120,6 +119,7 @@ function handleAddActivityClick(e) {
   $('#activityModal').modal('show');
 }
 
+//when the activity modal save button is clicked
 function handleNewActivitySubmit(e) {
   e.preventDefault();
   var $modal = $('#activityModal');
@@ -164,8 +164,6 @@ function handleNewActivitySubmit(e) {
     console.log('post to /api/dogs/:dogId/activitylogs resulted in error', err);
   });
 }
-
-
 
 // when an activity delete button is clicked
 function handleDeleteActivityClick(e) {
