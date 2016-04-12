@@ -39,3 +39,6 @@ https://github.com/lsquach/project1
 
 ## Link to Heroku
 https://shrouded-ridge-63422.herokuapp.com/
+
+## Screenshots
+https://github.com/lsquach/project1/blob/master/readme_images/didhepoop_1.png
