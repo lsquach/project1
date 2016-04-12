@@ -8,6 +8,8 @@ $(document).ready(function() {
     dogs.forEach(function(dog) {
       renderDog(dog);
       //catch and handle the click on delete activity button
+      //nest delete activity button inside my handle success function.
+      //Also learned to target the element outside the handlebar script tags
       $('#dogTarget').on('click', '.delete-activity', handleDeleteActivityClick);
     });
   });
@@ -16,6 +18,7 @@ $(document).ready(function() {
     e.preventDefault();
     var formData = $(this).serialize();
     $.post('/api/dogs', formData, function(dog) {
+      //found this cool bootstrap method where it collapses the Add Dog form on submit
       $('.collapse').collapse('hide');
       renderDog(dog);
     });
