@@ -78,3 +78,11 @@ h1 {
 li {
   list-style-type: none;
 }
+
+.bottom-header {
+  margin-left: 44%;
+}
+
+.bottom-text {
+  text-align: center;
+}
