@@ -22,11 +22,11 @@
   <body>
     <div class="jumbotron">
       <div class="header">
-      <h1 class="display-3">Did he poop?</h1>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-      <hr class="m-y-2">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <p class="lead">
+        <h1 class="display-3">Did he poop?</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="m-y-2">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Add Dog
         </button>
@@ -40,143 +40,120 @@
             <div class="form-group">
               <input type="text" class="form-control" name="image" placeholder="Image Link" required>
             </div>
-            <button type="submit" class="btn btn-info">Submit</button>
+              <button type="submit" class="btn btn-info">Submit</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-
-
-          <div id="dogTarget">
-            <script id="dog-template" type="text/x-handlebars-template">
-              <div class="row dog" data-dog-id="{{_id}}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div id="dogTarget">
+          <script id="dog-template" type="text/x-handlebars-template">
+            <div class="row dog" data-dog-id="{{_id}}">
               <div class="col-md-4 col-md">
-                <p>
                 <div class="dog-profile">
                   <img class="img-size img-circle dog-image" src="{{image}}" >
-                <span class="dog-image-field">
-                </span>
-                <br>
-                <span class="dog-name"><b>{{name}}</b></span>
-              <div class="action-buttons">
-                <p><button class="btn btn-info update-dog">Update</button></p>
-                <p><button class='btn btn-success save-dog hidden'>Save</button></p>
-                <p><button class="btn btn-warning delete-dog">Delete</button></p>
-                <p><button class='btn btn-primary add-activity'>Add Activity</button></p>
-              </div>
-              </p>
-            </div>
-              </div> <!--end of col 1 -->
+                  <span class="dog-image-field"></span>
+                  <span class="dog-name"><p><b>{{name}}</b></p></span>
+                    <div class="action-buttons">
+                      <p><button class="btn btn-info update-dog button-size">Update</button></p>
+                      <p><button class='btn btn-success save-dog hidden button-size'>Save</button></p>
+                      <p><button class="btn btn-danger delete-dog button-size">Delete</button></p>
+                      <p><button class='btn btn-primary add-activity button-size'>Add Activity</button></p>
+                    </div>
+                  </div>
+                </div> <!--end of col 1 -->
               <div class="activity-section">
-              <div class="col-md-8 col-md">
-              <!-- <h2> Activity Log</h2> -->
-              <br>
-              <div class="activity-view">
-              {{#each activityLog}}
-              <div class="activity" id="{{_id}}" data-dog-id="{{../dogId}}">
-                <div class="list-view">
-                  <ul>
-                    <li>Time: {{time}}</li>
-                    <li>Walked? {{#if walked}} Yes {{else}} No{{/if}}</li>
-                    <li>Pooped? {{#if pooped}} Yes {{else}} No{{/if}}</li>
-                    <li>Peed? {{#if peed}} Yes {{else}} No{{/if}}</li>
-                    <li>Fed? {{#if fed}} Yes {{else}} No{{/if}}</li>
-                    <li>Name: {{name}}</li>
-                  </ul>
-
-
-
-                  <!-- <li id="tripCity"><strong>\{{city}}</strong>, \{{country}}
+                <div class="col-md-8 col-md">
+                  <div class="activity-view">
+                    {{#each activityLog}}
+                    <div class="activity" id="{{_id}}" data-dog-id="{{../dogId}}">
+                      <div class="list-view">
+                        <p>Time: {{time}}</p>
+                        <p>Walked? {{#if walked}} Yes {{else}} No{{/if}}</p>
+                        <p>Pooped? {{#if pooped}} Yes {{else}} No{{/if}}</p>
+                        <p>Peed? {{#if peed}} Yes {{else}} No{{/if}}</p>
+                        <p>Fed? {{#if fed}} Yes {{else}} No{{/if}}</p>
+                        <p>Logged by: {{name}}</p>
+                      </div>
+                      <ul>
+                        <li>
                           <div class="pull-right">
-                            <a href="javascript:void(0)" id="edit_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                            <a href="javascript:void(0)" id="delete_trip" data-trip-Id=\{{_id}} data-user-Id=\{{../_id}}><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                            <button class="btn btn-danger delete-activity" data-activity-id={{_id}}>Delete Activity</button>
                           </div>
-                        </li> -->
-                </div>
-                <ul>
-                <li>
-                <div class="pull-right">
-                  <button class="btn btn-warning delete-activity" data-activity-id={{_id}}>Delete Activity</button>
-                </div>
-              </li>
-            </ul>
-                <!-- <button class="btn btn-info update-activity">Update Activity</button> -->
+                        </li>
+                      </ul>
+                    </div>
+                    <br>
+                    {{/each}}
+                  </div>
+                </div> <!--end of col 2-->
               </div>
-
-              <br>
-
-              {{/each}}
-            </div>
-          </div> <!--end of col 2-->
-            </div>
             </div>
             <br>
           </script>
-          </div>
-          <hr>
-          <h4><a href="/api">Read My API Documentation</a></h4>
         </div>
+        <hr>
+        <h4><a href="/api">Read My API Documentation</a></h4>
       </div>
     </div>
+  </div>
     <!-- begin activityModal: this is not visible until you call .modal() on it -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="activityModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Activity</h4>
-          </div>
-          <div class="modal-body">
-
-            <form id="activityForm" method="post" class="form-horizontal">
+  <div class="modal fade" tabindex="-1" role="dialog" id="activityModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Add Activity</h4>
+        </div>
+        <div class="modal-body">
+          <form id="activityForm" method="post" class="form-horizontal">
               <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="time">Time</label>
-                <div class="col-md-4">
-                  <input id="time" name="time" type="text" placeholder="" class="form-control input-md" required="required">
-                </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="time">Time</label>
+              <div class="col-md-4">
+                <input id="time" name="time" type="text" placeholder="" class="form-control input-md" required="required">
               </div>
+            </div>
 
               <!-- Radio input -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="walked">Walked?</label>
-                <div class="col-md-4">
-                  <label class="radio-inline">
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="walked">Walked?</label>
+              <div class="col-md-4">
+                <label class="radio-inline">
                   <input id="walked" name="walked inlineRadioOptions" type="radio"  value="yes">Yes
-                  </label>
-                  <label class="radio-inline">
+                </label>
+                <label class="radio-inline">
                   <input id="walked" name="walked inlineRadioOptions" type="radio"  value="no">No
-                  </label>
-                </div>
+                </label>
               </div>
+            </div>
 
               <!-- Radio input -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="pooped">Pooped?</label>
-                <div class="col-md-4">
-                  <label class="radio-inline">
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="pooped">Pooped?</label>
+              <div class="col-md-4">
+                <label class="radio-inline">
                   <input id="pooped" name="pooped inlineRadioOptions" type="radio"  value="yes">Yes
-                  </label>
-                  <label class="radio-inline">
+                </label>
+                <label class="radio-inline">
                   <input id="pooped" name="pooped inlineRadioOptions" type="radio"  value="no">No
                 </label>
-                </div>
               </div>
+            </div>
 
               <!-- Radio input -->
               <div class="form-group">
                 <label class="col-md-4 control-label" for="peed">Peed?</label>
                 <div class="col-md-4">
                   <label class="radio-inline">
-                  <input id="peed" name="peed inlineRadioOptions" type="radio"  value="yes">Yes
+                    <input id="peed" name="peed inlineRadioOptions" type="radio"  value="yes">Yes
                   </label>
                   <label class="radio-inline">
-                  <input id="peed" name="peed inlineRadioOptions" type="radio"  value="no">No
-                </label>
+                    <input id="peed" name="peed inlineRadioOptions" type="radio"  value="no">No
+                  </label>
                 </div>
               </div>
 
@@ -185,27 +162,27 @@
                 <label class="col-md-4 control-label" for="fed">Fed?</label>
                 <div class="col-md-4">
                   <label class="radio-inline">
-                  <input id="fed" name="fed inlineRadioOptions" type="radio"  value="yes">Yes
+                    <input id="fed" name="fed inlineRadioOptions" type="radio"  value="yes">Yes
                   </label>
                   <label class="radio-inline">
-                  <input id="fed" name="fed inlineRadioOptions" type="radio"  value="no">No
+                    <input id="fed" name="fed inlineRadioOptions" type="radio"  value="no">No
                   </label>
                 </div>
               </div>
 
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-md-4 control-label" for="loggerName">Name</label>
+                <label class="col-md-4 control-label" for="loggerName">Logged by:</label>
                 <div class="col-md-4">
                   <input id="loggerName" name="loggerName" type="text" placeholder="" class="form-control input-md" required="required">
                 </div>
               </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveActivity">Save</button>
-          </div>
-        </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" id="saveActivity">Save</button>
+            </div>
+          </form>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
