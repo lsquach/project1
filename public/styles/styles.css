@@ -24,15 +24,18 @@ body {
   border-radius: 20px;
   color: white;
   padding: 20px;
+  margin-bottom: 20px;
 }
 .dog-profile {
   text-align: center;
   font-size: 15px;
   color: white;
+  padding: 20px;
 }
 .dog {
   border-radius: 20px;
   background-color: #778899;
+  margin-bottom: 15px;
 }
 
 .list-view {
