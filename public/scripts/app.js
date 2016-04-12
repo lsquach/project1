@@ -48,7 +48,7 @@ function handleDogEditClick(e) {
 
   // get the dog name and replace its field with an input element
   var dogName = $dogRow.find('span.dog-name').text();
-  $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Name" value="' + dogName + '"> </input>');
+  $dogRow.find('span.dog-name').html('<input class="form-control edit-dog-name" placeholder="Dog Name" value="' + dogName + '"> </input>');
 
   // get the image and show an input element
   var dogImageField = $dogRow.find('span.dog-image-field').text();
