@@ -134,12 +134,13 @@ function handleNewActivitySubmit(e) {
   var $poopedField = $modal.find('#pooped, input:radio');
   var $peedField = $modal.find('#peed, input:radio');
   var $fedField = $modal.find('#fed, input:radio');
+  var $walkedTest = $("form input[type='radio']:checked").val();
 
   // get data from modal fields
   var dataToPost = {
     time: $timeField.val(),
     name: $loggerNameField.val(),
-    walked: $walkedField.val(),
+    walked: $walkedTest,
     pooped: $poopedField.val(),
     peed: $peedField.val(),
     fed: $fedField.val()
